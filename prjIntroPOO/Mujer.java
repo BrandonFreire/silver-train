@@ -1,5 +1,6 @@
 public class Mujer {
-    //atributos de clase mujer
+    //atributos de la clase mujer
+    //propiedades
     public String nombre;
     private int edad;
     private double altura;

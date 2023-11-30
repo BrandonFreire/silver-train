@@ -11,6 +11,7 @@ public class Bucle{
     public Bucle(int nroTerminos){
         this.nroTerminos = nroTerminos;
     }
+
     public static void cicloRepetitivo(){
         //ciclo
         int nroTerminos=10;
@@ -32,35 +33,24 @@ public class Bucle{
     }
 
     public void tipoDato(){
-        //Datos primitivos 
-        char letra = 'a';
-        letra=54; //al asignar un numero, considera que se le esta asginando un valor de la tabla asci
-        short edad= 32;
-        int num = 321;
-        long numeroLong = 98786;
-        long l = 10L;  //L esta separando un valor "grande" de memoria
-        float peso= 1.7f; //letras al final para manejar tipos de datos
-        double altura= 1.8d;
-        boolean esMayorDeEdad = (i==2);
-        boolean esMayorDeEdad = 0;
+        //Tipo de dato primitivos -> variables
+        byte bin =0; //almacena 1 y 0
+        boolean ban = true; // almacena true y flase
+        char c = 'c'; // almacena cualquier caracter
+        c = 54 ; // se le asigna un valor entero, tomara el valor ascii
 
-        num = (float) precio;
+        // Cast implicito: proceso de conversion para almacenar numeros mas grandes y asignar espacion mas grandes
+        short edad = 37;
+        int num = 10;
+        // al asignarle una letra, se le dice al compilador que separe un gran espacio o poco espacio de memoria 
+        long l = 10L; // L indica que sera un enterp largo. Indica que separe un valor para almacenarlo
+        float f = 10.00000f; //
+        double d = 10.000d;
+
+        //Tipos de dato de referencia = propiedades
+        String cadNum = "123a";
+        Long ll = 21L;
         
-        //datos objeto
-        String nombre="122544";
-        Integer numero = 45;
-        Float float1 = 321f;
-        /*
-         * en capacidad de almacenamiento, los datos objeto no tienen ninguna diferencia con los datos primitivos
-         */
-        nombre=float1.toString();
-        nombre=numero.toString();
-        nomre.charAt(1);
 
     }
-
-    /*
-     * for( ; ; ) 
-     * ciclo que repite infinitamente
-     */
 }
