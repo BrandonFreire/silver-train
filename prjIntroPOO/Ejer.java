@@ -12,7 +12,9 @@ public class Ejer {
         //Figuras: se debe pedir tamaño/niveles
         //figura9(nPosiciones);
         //figura12(nPosiciones);
-        figura18(nPosiciones);
+        //figura18(nPosiciones);
+        //cadena4();
+        //cadena5();
     }
 
     public static void serie1Char(int posiciones) {
@@ -105,7 +107,9 @@ public class Ejer {
     * 
     */
 
-    /**F12:
+
+    public static void  figura12(int posiciones){
+            /**F12:
             ...
             123456789
             12345678
@@ -118,7 +122,6 @@ public class Ejer {
             1
      * 
      */
-    public static void  figura12(int posiciones){
         int contador=posiciones;
         for(int i=0 ; i<=posiciones ; i++){
             for(int j=1 ; j<=contador ; j++){
@@ -128,6 +131,7 @@ public class Ejer {
             contador--;
         }
     }
+    
     /**F17:
             1				1
                 0		0
@@ -138,7 +142,9 @@ public class Ejer {
      * 
      */
 
-    /**F18:
+    
+    public static void figura18(int filas){
+        /**F18:
             2
             1   2
             1   3   2
@@ -147,7 +153,6 @@ public class Ejer {
             1   6   14  16  9  2
      * 
      */
-    public static void figura18(int filas){
         int[][] matriz = new int[filas][filas];
         // Llenar la matriz
         for (int i = 0; i < filas; i++) {
@@ -167,9 +172,56 @@ public class Ejer {
         }
     }
     //----------------
-    /**
+
+    public static void cadena4(){
+            /**C04)    Pedir una frase y una letra, eliminar la letra ingresada de la frase. 
+            Ejemplo, frase: ballena azul  
+                    letra : l
+                    salida: ba  ena azu 
      * 
      */
+        String cadena = new String();
+        String letra = new String();
+        System.out.println("Ingrese una frase");
+        Scanner sc = new Scanner(System.in);
+        cadena = sc.nextLine().toLowerCase();
+        System.out.println("Ingrese la letra a eliminar:");
+        letra = sc.nextLine().toLowerCase();
+        String cadenaRem = cadena.replaceAll(letra, " ");
+        System.out.println(cadenaRem);
+    }
 
+    
+    
+    public static void cadena5 (){
+        /**C05)    Pedir una frase y presentarla inverida con las vocales en mayusculas. 
+            Ejemplo, frase: ballena
+                    salida: AnEllAb 
+        * 
+        */
+        String cadena = new String();
+        System.out.println("Ingrese una frase");
+        Scanner sc = new Scanner(System.in);
+        cadena = sc.nextLine().toLowerCase();
+        char[] cadenachars = cadena.toCharArray();
+        for (int i=0 ; i<cadenachars.length ; i++){
+            if ((cadenachars[i] == 'a') || (cadenachars[i]=='e')|| (cadenachars[i]=='i') || (cadenachars[i]=='o') || (cadenachars[i]=='u')){
+                cadenachars[i]= Character.toUpperCase(cadenachars[i]);
+            }
+        }
+        String nuevaCadena = String.valueOf(cadenachars);
+        StringBuilder reversaCadena = new StringBuilder(nuevaCadena);
+        reversaCadena.reverse();;
+        System.out.println(reversaCadena);
+    }
+
+    /**	C06)    Pedir una frase y presentarla inverida con las letras en mayusculas. 
+            Ejemplo, frase: ballena
+                    salida: aNeLLaB 
+     * 
+     */
+    public static void cadena6(){
+        String cadena = new String();
+    }
 }
 
