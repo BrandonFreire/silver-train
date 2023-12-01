@@ -1,6 +1,5 @@
 public class Static {
     public static void main(String[] args) {
-        //serie oSerie = new serie();
         serieLoad();
         serieWaiting();
     }   
@@ -24,4 +23,5 @@ public class Static {
         }
     } 
     
+
 }

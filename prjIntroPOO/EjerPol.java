@@ -7,6 +7,7 @@ public class EjerPol {
         int nPosiciones = sc.nextInt();
         Serie1Char(nPosiciones);
         Serei2Char(nPosiciones);
+        Serie7Char(nPosiciones);
     }
 
     public static void Serie1Char(int posiciones) {
@@ -37,14 +38,35 @@ public class EjerPol {
         int anterior=0;
         int auxiliar;
         for(int i=0 ; i < posiciones; i++){ 
-            /*for(int j =1; j <=variable ; j++){
-                System.out.print("+" + " ");
-            }*/
-            String s = "+".repeat(variable);
-            System.out.print(s + " ");
+            String serieChar = "+".repeat(variable);
+            System.out.print(serieChar + " ");
             auxiliar = variable;
             variable += anterior;
             anterior = auxiliar;
         }
+        System.out.println();
     }
+
+    /** S7:  aa   bbbb  cccccc  dddddddd    ...
+     * @autor Ismael Freire
+     * @version 1.0
+     */
+    public static void Serie7Char(int posiciones){
+        int contadorElementos=0;
+        char letra = 'a';
+        for(int i=2 ; contadorElementos<posiciones ; i+=2){
+            //System.out.print(i);
+            for(int j=0 ; j<i ; j++){
+                System.out.print(letra);
+            }
+            System.out.print(" ");
+            letra++;
+            contadorElementos++;
+        }
+        System.out.println();
+    }
+
+    /**
+     * 
+     */
 }
