@@ -2,15 +2,16 @@ import java.util.Scanner;
 
 public class Ejer {
     public static void main(String[] args) {
-        //System.out.println("Ingrese el numero de posiciones: ");
-        //Scanner sc = new Scanner(System.in);
-        //int nPosiciones = sc.nextInt();
+        System.out.println("Ingrese el numero de posiciones: ");
+        Scanner sc = new Scanner(System.in);
+        int nPosiciones = sc.nextInt();
         //serie1Char(nPosiciones);
         //serei2Char(nPosiciones);
         //serie7Char(nPosiciones);
         //----------------
         //Figuras: se debe pedir tamaño/niveles
         //figura9(nPosiciones);
+        figura10(nPosiciones);
         //figura12(nPosiciones);
         //figura18(nPosiciones);
         //cadena4();
@@ -21,8 +22,9 @@ public class Ejer {
         //loading3();
         //int resultado = sumaRecurisva(0,120);
         //System.out.println(resultado);
-        int resultado = multiplicacionRecursiva(9, 23);
-        System.out.println(resultado);
+
+        //int resultado = multiplicacionRecursiva(9, 23);
+        //System.out.println(resultado);
 
     }
 
@@ -93,15 +95,28 @@ public class Ejer {
      * @author Ismael Freire
      */
     public static void figura9 (int numFilas){
-        int espaciosBlanco = 0;
-        /*String matriz[][]= {{"___"},{"|"}};
-        for(int i=0 ; espaciosBlanco<numFilas ; i++){
-            //System.out.println("___");
-            for(int j=0 ; j< (Math.pow(numFilas, 2)+1); j++){
-                System.out.println(matriz[i][j]);
+        //Recorrer filas
+        for(int filas=0 ; filas<=numFilas ; filas++){
+            //imprimir espacios en blanco
+            for(int espacioBlanco=1 ; espacioBlanco<=numFilas-filas ; espacioBlanco++){
+                System.out.print("    ");
             }
-            espaciosBlanco += 3;
-        }*/
+            // Imprimir el lado izquierdo
+            if (filas>=1) {
+                System.out.print("___|");
+            }
+            // Bucle para imprimir espacios en blanco entre los lados
+            for (int k = 0; k < 2*filas-1; k++) {
+                System.out.print("    ");
+            }
+            
+            if (filas == 0) {
+                System.out.println("____");
+            }else{
+                // Imprimir el lado derecho
+                System.out.println("|___");
+            }
+        }
     }
     /**F10:
             _+_
@@ -112,7 +127,37 @@ public class Ejer {
                                 |
      * 
      */
-    
+    public static void figura10(int numFilas){
+        String s = "|_-_";
+        String s1 = " _+_";
+        for(int filas=0 ; filas<=numFilas ; filas++){
+            for(int espacioBlanco=0 ; espacioBlanco<2*filas ; espacioBlanco++){
+                System.out.print("  ");
+            }
+            
+            if (filas==0) {
+                System.out.println(s1);
+            }else if(filas >= 1){
+                System.out.println(s);
+                if(s=="|_-_"){
+                    s="|_+_";
+                 }else{
+                    s="|_-_";
+                }                
+            }            
+
+            /*if (filas>=1) {
+                System.out.println(s);
+                if(s=="|_+_"){
+                    s="|_-_";
+                 }else{
+                    s="|_+_";
+                }
+            }else{
+                System.out.println("_+_");
+            }*/
+        }
+    }
      
     /**
     * 
@@ -297,7 +342,7 @@ public class Ejer {
     *     L07) Crear una barra es de 20 caracteres, la barra avanza cambiando la punta con movimiento rotacional signos \|/-|
          [====/           ] 20%
     */
-    public static void loading3(){
+    public static void loading7(){
         char[] barra;
         barra = new char[20];
         //System.out.println("Ingrese un caracter:");

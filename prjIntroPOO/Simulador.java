@@ -84,7 +84,7 @@ public class Simulador {
      * }
      */
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         int longitudBarra = 20;
 
         for (int porcentajeCompletitud = 0; porcentajeCompletitud <= 100; porcentajeCompletitud += 5) {
@@ -122,5 +122,30 @@ public class Simulador {
         int indice = (porcentaje / 5) % puntaRotacional.length;
 
         return puntaRotacional[indice];
-    }
+    }*/
+        public static void main(String[] args) {
+            int niveles = 5; // Puedes ajustar la cantidad de niveles según tus necesidades
+            
+            // Bucle externo para controlar los niveles
+            for (int i = 0; i < niveles; i++) {
+                
+                // Bucle para imprimir espacios en blanco antes de los pipes
+                for (int j = 0; j < niveles - i - 1; j++) {
+                    System.out.print("   ");
+                }
+                
+                // Imprimir el pipe izquierdo
+                System.out.print("___|");
+                
+                // Bucle para imprimir espacios en blanco entre los pipes
+                for (int k = 0; k < 2 * i; k++) {
+                    System.out.print(" ");
+                }
+                
+                // Imprimir el pipe derecho
+                System.out.println("|___");
+            }
+        }
+    
+    
 }
