@@ -17,7 +17,11 @@ public class Ejer {
         //cadena5();
         //cadena6();
         //loading1();
-        loading2();
+        //loading2();
+        //loading3();
+        int resultado = sumaRecurisva(20,9);
+        System.out.println(resultado);
+
     }
 
     public static void serie1Char(int posiciones) {
@@ -107,6 +111,7 @@ public class Ejer {
      * 
      */
     
+     
     /**
     * 
     */
@@ -250,9 +255,9 @@ public class Ejer {
         / 100%
         * 
         */
-        String signoLoad[]={"|", "/", "-", "\\"};
+        String barraCargandoString[]={"|", "/", "-", "\\"};
         for(int i = 0; i <= 100; i++){
-            String c = signoLoad[i%4];
+            String c = barraCargandoString[i%4];
             System.out.print("\r Loading "+ c +" "+ i +" %");
             try {Thread.sleep(100);} 
             catch (InterruptedException ie) {}
@@ -290,7 +295,54 @@ public class Ejer {
     *     L07) Crear una barra es de 20 caracteres, la barra avanza cambiando la punta con movimiento rotacional signos \|/-|
          [====/           ] 20%
     */
-    
-    
+    public static void loading3(){
+        char[] barra;
+        barra = new char[20];
+        //System.out.println("Ingrese un caracter:");
+        //Scanner sc = new Scanner(System.in);
+        //char caracter = sc.next().charAt(0);
+        char caracter = '=';
+
+        for (int longitud=1 ; longitud <= barra.length ; longitud++){
+            int porcentaje=(longitud*5);
+            System.out.print("[");
+            for(int i=0 ; i<barra.length ; i++){
+                if (i < longitud) {
+                    barra[i]=caracter;
+                    System.out.print(barra[i]);
+                    barra[i+1]=puntaRotacional();
+                    System.out.print(barra[i+1]);
+                }else{                   
+                    System.out.print(" ");
+                }
+            }
+            System.out.print("] " + porcentaje + "%\r");
+            try {Thread.sleep(200);} catch (InterruptedException ie){}
+        }
+    }    
+    private static char puntaRotacional() {
+        String barraCargandoString[]={"|", "/", "-", "\\"};
+        for(int i = 0; i <= 100; i++){
+            String c = barraCargandoString[i%4];
+            System.out.print("\r"+ c);
+            try {Thread.sleep(100);} 
+            catch (InterruptedException ie) {}
+        }
+        System.out.println();
+        return puntaRotacional();
+    }
+
+    /**
+     * R02) crear un metodo recursivo para obtener la suma(a,b)
+     */
+    public static int sumaRecurisva(int a, int b){
+        if(a==0){
+            return b;
+        }else if (b==0){
+            return a;
+        }else{
+            return 1+sumaRecurisva(a, b-1);
+        }
+    }
 }
 
