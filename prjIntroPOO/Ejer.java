@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class Ejer {
     public static void main(String[] args) {
-        System.out.println("Ingrese el numero de posiciones: ");
-        Scanner sc = new Scanner(System.in);
-        int nPosiciones = sc.nextInt();
+        //System.out.println("Ingrese el numero de posiciones: ");
+        //Scanner sc = new Scanner(System.in);
+        //int nPosiciones = sc.nextInt();
         //serie1Char(nPosiciones);
         //serei2Char(nPosiciones);
         //serie7Char(nPosiciones);
@@ -15,6 +15,9 @@ public class Ejer {
         //figura18(nPosiciones);
         //cadena4();
         //cadena5();
+        //cadena6();
+        //loading1();
+        loading2();
     }
 
     public static void serie1Char(int posiciones) {
@@ -54,11 +57,12 @@ public class Ejer {
         System.out.println();
     }
 
-    /** S7:  aa   bbbb  cccccc  dddddddd    ...
-     * @autor Ismael Freire
-     * @version 1.0
-     */
+
     public static void serie7Char(int posiciones){
+        /** S7:  aa   bbbb  cccccc  dddddddd    ...
+        * @autor Ismael Freire
+        * @version 1.0
+        */
         int contadorElementos=0;
         char letra = 'a';
         for(int i=2 ; contadorElementos<posiciones ; i+=2){
@@ -209,19 +213,84 @@ public class Ejer {
                 cadenachars[i]= Character.toUpperCase(cadenachars[i]);
             }
         }
-        String nuevaCadena = String.valueOf(cadenachars);
-        StringBuilder reversaCadena = new StringBuilder(nuevaCadena);
+        String nuevaCadenaString = String.valueOf(cadenachars);
+        StringBuilder reversaCadena = new StringBuilder(nuevaCadenaString);
         reversaCadena.reverse();;
         System.out.println(reversaCadena);
     }
 
-    /**	C06)    Pedir una frase y presentarla inverida con las letras en mayusculas. 
+
+    public static void cadena6(){
+            /**	C06)    Pedir una frase y presentarla inverida con las letras en mayusculas. 
             Ejemplo, frase: ballena
                     salida: aNeLLaB 
      * 
      */
-    public static void cadena6(){
         String cadena = new String();
+        System.out.println("Ingrese una frase:");
+        Scanner sc = new Scanner(System.in);
+        cadena = sc.nextLine().toLowerCase();
+        char[] cadenachars = cadena.toCharArray();
+        for (int i=0 ; i<cadenachars.length ; i++){
+            if ((cadenachars[i] != 'a') && (cadenachars[i] !='e') && (cadenachars[i] !='i') && (cadenachars[i] !='o') && (cadenachars[i] !='u')){
+                cadenachars[i]= Character.toUpperCase(cadenachars[i]);
+            }
+        }
+        String nuevaCadenaString = String.valueOf(cadenachars);
+        StringBuilder reversaCadena = new StringBuilder(nuevaCadenaString);
+        reversaCadena.reverse();
+        System.out.println(reversaCadena);
     }
+
+
+
+    public static void loading1 (){
+        //---------------------LOADING
+        /**    L01) Indicador de carga desde 0  a 100% usar los signos \|/-| para simular un movimiento rotacional de carga 0% hasta 100%  
+        / 100%
+        * 
+        */
+        String signoLoad[]={"|", "/", "-", "\\"};
+        for(int i = 0; i <= 100; i++){
+            String c = signoLoad[i%4];
+            System.out.print("\r Loading "+ c +" "+ i +" %");
+            try {Thread.sleep(100);} 
+            catch (InterruptedException ie) {}
+        }
+        System.out.println();
+    }
+
+
+     /**
+      *     L02) Pedir un caracter para la simular la carga y la logitud de la barra es de 20 caracteres 
+        [###         ] 20%
+      */
+    public static void loading2(){
+        char[] barra;
+        barra = new char[20];
+        System.out.println("Ingrese un caracter:");
+        Scanner sc = new Scanner(System.in);
+        char caracter = sc.next().charAt(0);
+
+        for (int longitud=1 ; longitud <= barra.length ; longitud++){
+            int porcentaje=(longitud*5);
+            System.out.print("[");
+            for(int i=0 ; i<barra.length ; i++){
+                if (i < longitud) {
+                    System.out.print(caracter);
+                }else{
+                    System.out.print(" ");
+                }
+            }
+            System.out.print("] " + porcentaje + "%\r");
+            try {Thread.sleep(200);} catch (InterruptedException ie){}
+        }
+    }
+    /**
+    *     L07) Crear una barra es de 20 caracteres, la barra avanza cambiando la punta con movimiento rotacional signos \|/-|
+         [====/           ] 20%
+    */
+    
+    
 }
 
