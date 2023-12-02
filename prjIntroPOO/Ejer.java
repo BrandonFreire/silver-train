@@ -19,7 +19,9 @@ public class Ejer {
         //loading1();
         //loading2();
         //loading3();
-        int resultado = sumaRecurisva(20,9);
+        //int resultado = sumaRecurisva(0,120);
+        //System.out.println(resultado);
+        int resultado = multiplicacionRecursiva(9, 23);
         System.out.println(resultado);
 
     }
@@ -342,6 +344,17 @@ public class Ejer {
             return a;
         }else{
             return 1+sumaRecurisva(a, b-1);
+        }
+    }
+
+    /**
+     * R03) crear un metodo recursivo para obtener la multiplicacion(a,b)  
+     */
+    public static int multiplicacionRecursiva(int a, int b){
+        if (a==0 || b==0) {
+            return 0;
+        } else{
+            return a+multiplicacionRecursiva(a, b-1);
         }
     }
 }
