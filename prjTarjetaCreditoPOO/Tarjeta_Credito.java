@@ -16,6 +16,57 @@ public class Tarjeta_Credito {
     private String clave;
 
     // METODOS
+    
+    // getter/setter de banco
+    public String getBanco() {
+        return this.banco.toUpperCase();
+    }
+
+    public void setBanco(String banco) {
+        Scanner ingresoDat = new Scanner(System.in);
+        do {
+            if (banco.length()==9 && banco.toLowerCase().equals("pichincha")) {
+                this.banco = banco;
+                break;
+            } else if(banco.isBlank()){
+                System.out.println("Banco ingresado es incorrecto, por favor intente nuevamente:");
+                banco = ingresoDat.nextLine();
+                this.banco = banco;
+            }else{
+                System.out.println("Banco ingresado es incorrecto, por favor intente nuevamente:");
+                banco = ingresoDat.nextLine();
+                this.banco = banco;                
+            }
+        } while (true);
+
+    }
+
+    // getter/setter de TIPO de tarjeta de credito
+    public String getTipoTC() {
+        return this.tipoTC;
+    }
+
+    public void setTipoTc(String tipoTC) {
+        tipoTC = tipoTC.toLowerCase();
+        do {
+            if (tipoTC.length()==4 && tipoTC.toLowerCase().equals("visa")) {
+                this.tipoTC = tipoTC.toUpperCase();
+                break;
+            } else {
+                System.out.println("El tipo de Tarjeta de Credito no es valido, solo se admiten VISA.");
+                for (int i = 0; i < 50; i++) {
+                    System.out.print(" ");
+                    try {
+                    Thread.sleep(100);} catch (InterruptedException ie) {
+                    }
+                }
+                System.out.println("Lo sentimos...");       
+                System.exit(0);
+            }            
+        } while (true);
+
+    }    
+
     // getter/setter de NombreUsuario
     public String getNombreUsuario() {
         return this.nombreUsuario.toUpperCase();
@@ -25,7 +76,7 @@ public class Tarjeta_Credito {
         do {
             if(nombreUsuario.isBlank()){
                 this.nombreUsuario = "No definido";
-            }else if (nombreUsuario.matches("[a-zA-Z]+")) {
+            }else if (nombreUsuario.matches("[a-zA-Z]+"+" "+"[a-zA-Z]+")) {
                 this.nombreUsuario = nombreUsuario;
                 break;  
             } else {
@@ -46,19 +97,23 @@ public class Tarjeta_Credito {
     public String getNumeroTarjeta() {
         return this.numeroTarjeta;
     }
-
     public void setNumeroTarjeta(String numeroTarjeta) {
         Scanner ingresoDat = new Scanner(System.in);
-        if (numeroTarjeta.length() == 16) {
-            String part1 = numeroTarjeta.substring(0, 4);
-            String part2 = numeroTarjeta.substring(4, 8);
-            String part3 = numeroTarjeta.substring(8, 12);
-            String part4 = numeroTarjeta.substring(12, 16);
-            this.numeroTarjeta = (part1 + "-" + part2 + "-" + part3 + "-" + part4);
-        } else {
-            System.out.println("Numero de tarjeta incorrecto" + "\nIngrese nuevamente el numero de tarjeta");
-            this.numeroTarjeta = ingresoDat.nextLine();
-        }
+        do {
+            if (numeroTarjeta.length() == 16) {
+                String part1 = numeroTarjeta.substring(0, 4);
+                String part2 = numeroTarjeta.substring(4, 8);
+                String part3 = numeroTarjeta.substring(8, 12);
+                String part4 = numeroTarjeta.substring(12, 16);
+                this.numeroTarjeta = (part1 + "-" + part2 + "-" + part3 + "-" + part4);
+                break;
+            } else {
+                System.out.println("Numero de tarjeta incorrecto" + "\nIngrese nuevamente el numero de tarjeta");
+                numeroTarjeta = ingresoDat.nextLine();
+                this.numeroTarjeta = numeroTarjeta;
+            }            
+        } while (true);
+
     }
 
     // getter/stter de fecha de expedicion
@@ -100,14 +155,14 @@ public class Tarjeta_Credito {
                         this.fechaExpiracion = "Su tarjeta ha expirado";
                     } else {
                         this.fechaExpiracion = fechaExpiracion;
+                        break;
                     }
                 }
             } else{
                 System.out.println("Error en la introduccion de la fecha de expiración."
                         + "\nIngrese nuevamente la fecha de expiracion");
-                String fecha = ingreso.nextLine();
-                setFechaExpiracion(fecha);
-
+                 = ingreso.nextLine();
+                
             }
     }*/
 
@@ -158,36 +213,6 @@ public class Tarjeta_Credito {
         }
     }
 
-    // getter/setter de banco
-    public String getBanco() {
-        return this.banco.toUpperCase();
-    }
-
-    public void setBanco(String banco) {
-        Scanner ingresoDat = new Scanner(System.in);
-        if (banco.length() == 9) {
-            this.banco = "Pichincha";
-        } else {
-            System.out.println("Banco ingresado es incorrecto, por favor intente nuevamente:");
-            this.banco = ingresoDat.nextLine();
-        }
-
-    }
-
-    // getter/setter de tipo de tarjeta de credito
-    public String getTipoTC() {
-        return this.tipoTC.toUpperCase();
-    }
-
-    public void setTipoTc(String tipoTC) {
-        tipoTC = tipoTC.toLowerCase();
-        if (tipoTC.equals("visa")) {
-            this.tipoTC = tipoTC;
-        } else {
-            System.out.println("El tipo de Tarjeta de Credito no es valido, solo se admiten VISA.");
-        }
-    }
-
     public void crearTC() {
         Scanner ingreso = new Scanner(System.in);
 
@@ -207,19 +232,19 @@ public class Tarjeta_Credito {
         System.out.println(getNombreUsuario());
 
         // ingresar numero de tarjeta
-        /*System.out.println("Ingrese el numero de su tarjeta");
+        System.out.println("Ingrese el numero de su tarjeta");
         setNumeroTarjeta(ingreso.nextLine());
-        System.out.println(getNumeroTarjeta());*/
+        System.out.println(getNumeroTarjeta());
 
         // ingresar la clave
-        System.out.println("Ingrese su clave personal para la tarjeta");
+        /*System.out.println("Ingrese su clave personal para la tarjeta");
         setClave(ingreso.nextLine());
-        System.out.println(getClave());
+        System.out.println(getClave());*/
 
         // ingresar fecha de expedicion
-        System.out.println("Ingrese el año de expedicion de su tarjeta");
+        /*System.out.println("Ingrese el año de expedicion de su tarjeta");
         setFechaExpedicion(ingreso.nextLine());
-        System.out.println(getFechaExpedicion());
+        System.out.println(getFechaExpedicion());*/
 
         // ingresar fecha de expiracion
         /*System.out.println("Ingrese la fecha de expiracion de su tarjeta en el siguiente formato (mm/aa)");
@@ -227,9 +252,9 @@ public class Tarjeta_Credito {
         System.out.println(getFechaExpiracion());*/
 
         // ingreso codigo CVV
-        System.out.println("Ingrese el codigo cvv de la tarjeta:");
+        /*System.out.println("Ingrese el codigo cvv de la tarjeta:");
         setCVV(ingreso.nextLine());
-        System.out.println(getCVV());
+        System.out.println(getCVV());*/
 
         System.out.println("\nCreando TarjetaCredito...");
         for (int i = 0; i < 50; i++) {
