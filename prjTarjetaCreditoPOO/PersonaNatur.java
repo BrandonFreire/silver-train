@@ -8,7 +8,6 @@ public class PersonaNatur extends Cliente{
         this.apellido = apellido;
         this.cedula = cedula;
     }
-
     // getter/setter
 
 }

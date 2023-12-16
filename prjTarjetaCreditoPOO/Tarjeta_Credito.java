@@ -4,6 +4,20 @@ import javax.sound.midi.SysexMessage;
 
 import java.util.Calendar;
 
+/**
+ * diagrama caso de uso: (pasar al drawio) //Andree
+ * 
+ * diagrama de clases (drawio):
+ * Cliente con Persona natural y Persona juridica //Matthew y  Sebastian 
+ * Productos (lista de 5 productos)  //Ivonne 
+ * Cajero (nombre, numerodecajero, supermaxi) //Freddy
+ * Tarjeta de credito //Alexis 
+ * Factura (mensaje:"Estoy facturando" + pasarle los datos del cliente para que los imprima + cajero + procutos + ) Leandro 
+ * 
+ * fecha de expiracion (controlar la fecha)
+ * tipo de tarjeta (otro condicional para que reingrese los datos)
+ * corregir los espacios TC //Andree
+ */
 public class Tarjeta_Credito {
     // Atributos de la clase tarjeta credito.
     private String nombreUsuario;
@@ -52,7 +66,7 @@ public class Tarjeta_Credito {
             if (tipoTC.length()==4 && tipoTC.toLowerCase().equals("visa")) {
                 this.tipoTC = tipoTC.toUpperCase();
                 break;
-            } else {
+            } else{ 
                 System.out.println("El tipo de Tarjeta de Credito no es valido, solo se admiten VISA.");
                 for (int i = 0; i < 50; i++) {
                     System.out.print(" ");
@@ -64,7 +78,6 @@ public class Tarjeta_Credito {
                 System.exit(0);
             }            
         } while (true);
-
     }    
 
     // getter/setter de NombreUsuario
@@ -86,11 +99,6 @@ public class Tarjeta_Credito {
                 this.nombreUsuario = nombreUsuario;
             }
         } while (true);
-        /*if (nombreUsuario.isBlank()) {
-            this.nombreUsuario = "No definido";
-        } else {
-            this.nombreUsuario = nombreUsuario;
-        }*/
     }
 
     // getter/setter de numero de tarjeta
@@ -161,7 +169,7 @@ public class Tarjeta_Credito {
             } else{
                 System.out.println("Error en la introduccion de la fecha de expiración."
                         + "\nIngrese nuevamente la fecha de expiracion");
-                 = ingreso.nextLine();
+
                 
             }
     }*/
@@ -237,14 +245,14 @@ public class Tarjeta_Credito {
         System.out.println(getNumeroTarjeta());
 
         // ingresar la clave
-        /*System.out.println("Ingrese su clave personal para la tarjeta");
+        System.out.println("Ingrese su clave personal para la tarjeta");
         setClave(ingreso.nextLine());
-        System.out.println(getClave());*/
+        System.out.println(getClave());
 
         // ingresar fecha de expedicion
-        /*System.out.println("Ingrese el año de expedicion de su tarjeta");
+        System.out.println("Ingrese el año de expedicion de su tarjeta");
         setFechaExpedicion(ingreso.nextLine());
-        System.out.println(getFechaExpedicion());*/
+        System.out.println(getFechaExpedicion());
 
         // ingresar fecha de expiracion
         /*System.out.println("Ingrese la fecha de expiracion de su tarjeta en el siguiente formato (mm/aa)");
@@ -252,9 +260,9 @@ public class Tarjeta_Credito {
         System.out.println(getFechaExpiracion());*/
 
         // ingreso codigo CVV
-        /*System.out.println("Ingrese el codigo cvv de la tarjeta:");
+        System.out.println("Ingrese el codigo cvv de la tarjeta:");
         setCVV(ingreso.nextLine());
-        System.out.println(getCVV());*/
+        System.out.println(getCVV());
 
         System.out.println("\nCreando TarjetaCredito...");
         for (int i = 0; i < 50; i++) {
@@ -274,7 +282,7 @@ public class Tarjeta_Credito {
         System.out.println("|                                            |");
         System.out.println("| " + getNombreUsuario() + "                              |");
         System.out
-                .println("| " + getFechaExpedicion() + "                              " + getFechaExpiracion() + "  |");
+                .println("| " + getFechaExpedicion() + "                              " + /*getFechaExpiracion() + */"  |");
         System.out.println("|                                            |");
         System.out.println("|             " + getNumeroTarjeta() + "            |");
         System.out.println("----------------------------------------------");
